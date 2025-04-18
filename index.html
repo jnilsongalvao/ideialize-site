@@ -1,84 +1,55 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ideialize Personalizados</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #f8f8f8; margin: 0; color: #333; }
-    header { background: #f47c2c; color: white; padding: 20px; text-align: center; }
-    nav { background: #444; padding: 10px; text-align: center; }
-    nav a { color: white; margin: 0 10px; text-decoration: none; }
-    section { padding: 20px; }
-    .produtos { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
-    .produto { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-    footer { background: #f47c2c; color: white; text-align: center; padding: 10px; margin-top: 40px; }
-    form input, form textarea, form button { display: block; width: 100%; margin-bottom: 10px; padding: 8px; }
-    form button { background: #f47c2c; color: white; border: none; cursor: pointer; }
-    ul { list-style: none; padding: 0; }
-    ul li { margin-bottom: 5px; }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <h1>Ideialize Personalizados</h1>
-    <p>Brindes que marcam a sua marca</p>
-  </header>
-
-  <nav>
-    <a href="#inicio">Início</a>
-    <a href="#produtos">Produtos</a>
-    <a href="#contato">Contato</a>
-  </nav>
-
-  <main>
-    <section id="inicio">
-      <h2>Sobre nós</h2>
-      <p>Somos especialistas em brindes personalizados de qualidade para empresas e eventos. Acreditamos que cada detalhe conta para impressionar seu cliente.</p>
-    </section>
-
-    <section id="produtos">
-      <h2>Produtos</h2>
-      <div id="produtos-container" class="produtos"></div>
-    </section>
-
-    <section id="contato">
-      <h2>Fale com a gente</h2>
-      <form>
-        <input type="text" placeholder="Seu nome" required />
-        <input type="email" placeholder="Seu e-mail" required />
-        <textarea rows="4" placeholder="Sua mensagem" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
+    <nav>
       <ul>
-        <li><a href="https://wa.me/SEUNUMERO" target="_blank">WhatsApp</a></li>
-        <li><a href="https://instagram.com/SEUUSUARIO" target="_blank">Instagram</a></li>
-        <li><a href="mailto:SEUEMAIL@email.com">E-mail</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#contato">Contato</a></li>
       </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <section id="produtos">
+      <h2>Nossos Produtos</h2>
+      <div class="produtos-container" id="produtos-container"></div>
+    </section>
+    
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>Fale conosco pelo WhatsApp: <a href="https://wa.me/5599999999999" target="_blank">Clique aqui</a></p>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Ideialize Personalizados. Todos os direitos reservados.</p>
+    <p>&copy; 2025 Ideialize Personalizados</p>
   </footer>
 
   <script>
     fetch('produtos.json')
-      .then(res => res.json())
-      .then(data => {
+      .then(response => response.json())
+      .then(produtos => {
         const container = document.getElementById('produtos-container');
-        data.forEach(produto => {
+        produtos.forEach(p => {
           const card = document.createElement('div');
           card.className = 'produto';
           card.innerHTML = `
-            <img src="${produto.imagem}" alt="${produto.nome}" style="width: 100%; border-radius: 8px;"/>
-            <h3>${produto.nome}</h3>
-            <p>${produto.descricao}</p>
+            <img src="\${p.imagem}" alt="\${p.nome}" />
+            <h3>\${p.nome}</h3>
+            <p>\${p.descricao}</p>
           `;
           container.appendChild(card);
         });
-      });
+      })
+      .catch(error => console.error('Erro ao carregar produtos:', error));
   </script>
 </body>
 </html>

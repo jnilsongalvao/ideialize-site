@@ -1,18 +1,17 @@
 [
   {
     "nome": "Copo Térmico 500ml",
-    "descricao": "Copo com isolamento térmico, ideal para manter bebidas geladas ou quentes por mais tempo.",
-    "imagem": "imagens/copo-termico.jpg"
+    "descricao": "Mantém sua bebida gelada ou quente por muito mais tempo.",
+    "imagem": "https://via.placeholder.com/200x150.png?text=Copo+Térmico"
   },
   {
     "nome": "Caneta Touch Screen",
-    "descricao": "Caneta com ponta para touchscreen e corpo metálico, ideal para brindes personalizados.",
-    "imagem": "imagens/caneta-touch.jpg"
+    "descricao": "Caneta com ponta especial para telas touchscreen.",
+    "imagem": "https://via.placeholder.com/200x150.png?text=Caneta+Touch"
   },
   {
     "nome": "Ecobag Algodão Cru",
-    "descricao": "Sacola ecológica de algodão cru, resistente e ideal para ações promocionais.",
-    "imagem": "imagens/ecobag.jpg"
+    "descricao": "Sacola ecológica feita em algodão cru de alta resistência.",
+    "imagem": "https://via.placeholder.com/200x150.png?text=Ecobag"
   }
 ]
-[]
